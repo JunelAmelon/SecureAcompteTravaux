@@ -2,21 +2,25 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 
 const menuItems = [
   { label: "ACCUEIL", href: "/" },
-  { label: "CONNEXION", href: "/auth/login" },
-  { label: "INSCRIPTION", href: "/auth/login" },
-  // { label: "CONTACTEZ NOUS", href: "/contact" },
+  { label: "CONNEXION", href: "https://app.secureacomptetravaux.com/auth/login" },
+  { label: "INSCRIPTION", href: "https://app.secureacomptetravaux.com/auth/login" },
 ];
 
 const contactInfo = [
   { icon: Phone, label: "+33 1 23 45 67 89", href: "tel:+33123456789" },
-  { icon: Mail, label: "contact@secure-acompte.fr", href: "mailto:contact@secure-acompte.fr" },
-  { icon: MapPin, label: "123 Avenue des Champs-Élysées, Paris", href: "https://maps.google.com" },
+  { icon: Mail, label: "contact@secureacomptetravaux.com", href: "mailto:contact@secureacomptetravaux.com" },
+  { 
+    icon: MapPin, 
+    label: "123 Avenue des Champs-Élysées, Paris", 
+    href: "https://maps.google.com/?q=123+Avenue+des+Champs-Élysées,Paris" 
+  },
 ];
 
 const socialLinks = [
@@ -29,11 +33,10 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 50;
-      setScrolled(isScrolled);
+      setScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -41,22 +44,26 @@ export function Navbar() {
   }, []);
 
   return (
-    <nav className={cn(
-      "fixed w-full z-50 transition-all duration-300",
-      scrolled ? "bg-white shadow-md" : "bg-transparent"
-    )}>
+    <nav 
+      className={cn(
+        "fixed w-full z-50 transition-all duration-300",
+        scrolled ? "bg-white shadow-md" : "bg-transparent"
+      )}
+      aria-label="Navigation principale"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link 
-              href="/" 
-              className={cn(
-                "text-2xl font-bold transition-colors duration-300",
-                scrolled ? "text-[#dd7109]" : "text-white"
-              )}
-            >
-                Secure Acompte
+            <Link href="/" aria-label="Accueil - Retour à la page d'accueil">
+              <Image
+                src={scrolled ? "/img/secureacomptetravaux-vn.jpg" : "/img/logo-blanc-sf.svg"}
+                alt="Logo Secure Acompte"
+                width={160}
+                height={40}
+                className="transition-all duration-300 h-10 w-auto"
+                priority
+              />
             </Link>
           </div>
 
@@ -68,7 +75,7 @@ export function Navbar() {
                 href={item.href}
                 className={cn(
                   "text-sm font-medium transition-colors duration-300",
-                  scrolled 
+                  scrolled
                     ? pathname === item.href
                       ? "text-[#dd7109]"
                       : "text-gray-800 hover:text-[#dd7109]"
@@ -76,6 +83,7 @@ export function Navbar() {
                       ? "text-[#dd7109]"
                       : "text-gray-300 hover:text-white"
                 )}
+                aria-current={pathname === item.href ? "page" : undefined}
               >
                 {item.label}
               </Link>
@@ -84,27 +92,25 @@ export function Navbar() {
 
           {/* Mobile menu button */}
           <div className="lg:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className={cn(
-                "p-2 rounded-lg transition-colors",
-                scrolled 
-                  ? "text-gray-800 hover:bg-gray-100" 
-                  : "text-white hover:bg-white/10"
-              )}
-            >
-              {isOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </button>
+        <button
+          onClick={() => setShowMobileMenu(false)}
+          className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+          aria-label="Fermer le menu"
+        >
+          <X className="h-6 w-6 text-[#1a1a1a]" />
+        </button>
+
+
+
+
+
           </div>
         </div>
       </div>
 
       {/* Mobile Menu Overlay */}
       <div
+        id="mobile-menu"
         className={cn(
           "fixed inset-0 bg-[#1a1a1a] lg:hidden transition-transform duration-300 ease-in-out",
           isOpen ? "translate-x-0" : "translate-x-full"
@@ -113,12 +119,20 @@ export function Navbar() {
         <div className="flex flex-col h-full">
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-white/10">
-            <Link href="/" className="text-2xl font-bold text-[#dd7109]">
-              Secure Acompte
+            <Link href="/" onClick={() => setIsOpen(false)} aria-label="Accueil - Retour à la page d'accueil">
+              <Image
+                src="/img/secureacomptetravaux-vn.jpg"
+                alt="Logo Secure Acompte"
+                width={160}
+                height={40}
+                className="h-10 w-auto"
+                priority
+              />
             </Link>
             <button
               onClick={() => setIsOpen(false)}
               className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+              aria-label="Fermer le menu"
             >
               <X className="h-6 w-6 text-white" />
             </button>
@@ -142,6 +156,7 @@ export function Navbar() {
                   transform: isOpen ? "translateX(0)" : "translateX(20px)",
                 }}
                 onClick={() => setIsOpen(false)}
+                aria-current={pathname === item.href ? "page" : undefined}
               >
                 {item.label}
                 <span className="absolute left-0 -bottom-0.5 w-0 h-0.5 bg-[#dd7109] group-hover:w-full transition-all duration-300" />
@@ -158,6 +173,8 @@ export function Navbar() {
                   key={index}
                   href={item.href}
                   className="flex items-center space-x-3 text-white/80 hover:text-[#dd7109] transition-colors"
+                  target={item.href.startsWith('http') ? "_blank" : undefined}
+                  rel={item.href.startsWith('http') ? "noopener noreferrer" : undefined}
                 >
                   <item.icon className="h-5 w-5" />
                   <span className="text-sm">{item.label}</span>
@@ -173,6 +190,8 @@ export function Navbar() {
                   href={social.href}
                   className="text-white/80 hover:text-[#dd7109] transition-colors"
                   aria-label={social.label}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <social.icon className="h-5 w-5" />
                 </a>

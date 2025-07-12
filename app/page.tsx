@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import { 
   Wallet, 
@@ -45,9 +44,18 @@ export default function Home() {
       <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
+            
+            {/* Logo dynamique responsive */}
             <div className="flex-shrink-0">
-              <Link href="/" className={`text-2xl font-bold transition-colors duration-300 ${isScrolled ? 'text-[#dd7109]' : 'text-white'}`}>
-                Secure Acompte
+              <Link href="/" aria-label="Accueil">
+                <Image
+                  src={isScrolled ? "/img/logo_noir_secureacc.svg" : "/img/logo blanc sf.svg"}
+                  alt="Logo Secure Acompte"
+                  width={500}
+                  height={120}
+                  className="transition-all duration-300 h-12 sm:h-14 md:h-16 w-auto"
+                  priority
+                />
               </Link>
             </div>
 
@@ -55,10 +63,10 @@ export default function Home() {
               <Link href="/" className={`text-sm font-medium transition-colors duration-300 ${isScrolled ? 'text-[#dd7109]' : 'text-white'}`}>
                 ACCUEIL
               </Link>
-              <Link href="/auth/login" className={`text-sm font-medium transition-colors duration-300 ${isScrolled ? 'text-gray-700 hover:text-[#dd7109]' : 'text-gray-300 hover:text-white'}`}>
+              <Link href="https://app.secureacomptetravaux.com/auth/login" className={`text-sm font-medium transition-colors duration-300 ${isScrolled ? 'text-gray-700 hover:text-[#dd7109]' : 'text-gray-300 hover:text-white'}`}>
                 CONNEXION
               </Link>
-              <Link href="/auth/login" className={`text-sm font-medium transition-colors duration-300 ${isScrolled ? 'text-gray-700 hover:text-[#dd7109]' : 'text-gray-300 hover:text-white'}`}>
+              <Link href="https://app.secureacomptetravaux.com/auth/login" className={`text-sm font-medium transition-colors duration-300 ${isScrolled ? 'text-gray-700 hover:text-[#dd7109]' : 'text-gray-300 hover:text-white'}`}>
                 INSCRIPTION
               </Link>
             </div>
@@ -67,6 +75,7 @@ export default function Home() {
               <button
                 onClick={() => setShowMobileMenu(true)}
                 className={`p-2 rounded-lg transition-colors ${isScrolled ? 'text-[#dd7109] hover:bg-[#dd7109]/10' : 'text-white hover:bg-white/10'}`}
+                aria-label="Ouvrir le menu"
               >
                 <Menu className="h-6 w-6" />
               </button>
@@ -75,37 +84,47 @@ export default function Home() {
         </div>
 
         {/* Mobile Menu */}
-        <div className={`fixed inset-0 bg-[#1a1a1a] lg:hidden transition-transform duration-300 ease-in-out ${showMobileMenu ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className={`fixed inset-0 bg-white lg:hidden transition-transform duration-300 ease-in-out ${showMobileMenu ? 'translate-x-0' : 'translate-x-full'}`}>
           <div className="flex flex-col h-full">
-            <div className="flex items-center justify-between p-6 border-b border-white/10">
-              <Link href="/" className="text-2xl font-bold text-[#dd7109]">
-                Secure Acompte
+            
+            {/* Header */}
+            <div className="flex items-center justify-between p-6 border-b border-gray-200">
+              <Link href="/" className="flex-shrink-0" onClick={() => setShowMobileMenu(false)} aria-label="Accueil">
+                <Image
+                  src="/img/logo_noir_secureacc.svg"
+                  alt="Logo Secure Acompte"
+                  width={500}
+                  height={120}
+                  className="h-12 sm:h-14 md:h-16 w-auto"
+                  priority
+                />
               </Link>
               <button
                 onClick={() => setShowMobileMenu(false)}
-                className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                aria-label="Fermer le menu"
               >
-                <X className="h-6 w-6 text-white" />
+                <X className="h-6 w-6 text-[#1a1a1a]" />
               </button>
             </div>
 
+            {/* Menu Items */}
             <div className="flex flex-col p-6 space-y-1">
               {[
                 { href: "/", label: "ACCUEIL", delay: 0 },
-                { href: "/auth/login", label: "CONNEXION", delay: 50 },
-                { href: "/auth/login", label: "INSCRIPTION", delay: 100 }
+                { href: "https://app.secureacomptetravaux.com/auth/login", label: "CONNEXION", delay: 50 },
+                { href: "https://app.secureacomptetravaux.com/auth/login", label: "INSCRIPTION", delay: 100 }
               ].map((item, index) => (
                 <Link
                   key={index}
                   href={item.href}
-                  className={`text-lg py-3 transition-all duration-300 relative group ${
-                    item.label === "ACCUEIL" ? "text-[#dd7109]" : "text-white/90 hover:text-[#dd7109]"
-                  }`}
+                  className="text-lg font-semibold text-[#dd7109] py-3 transition-all duration-300 relative group"
                   style={{
                     transitionDelay: `${item.delay}ms`,
-                    opacity: 0,
-                    transform: "translateX(20px)"
+                    opacity: 1,
+                    transform: "translateX(0)"
                   }}
+                  onClick={() => setShowMobileMenu(false)}
                 >
                   {item.label}
                   <span className="absolute left-0 -bottom-0.5 w-0 h-0.5 bg-[#dd7109] group-hover:w-full transition-all duration-300" />
@@ -113,30 +132,33 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="mt-auto p-6 bg-white/5">
+            {/* Contact Info */}
+            <div className="mt-auto p-6 bg-gray-50">
               <h3 className="text-[#dd7109] font-semibold mb-4">CONTACTEZ-NOUS</h3>
               <div className="space-y-4">
-                <a href="tel:+33123456789" className="flex items-center space-x-3 text-white/80 hover:text-[#dd7109] transition-colors">
+                <a href="tel:+33123456789" className="flex items-center space-x-3 text-[#1a1a1a] hover:text-[#dd7109] transition-colors">
                   <Phone className="h-5 w-5" />
                   <span className="text-sm">+33 1 23 45 67 89</span>
                 </a>
-                <a href="mailto:contact@secure-acompte.fr" className="flex items-center space-x-3 text-white/80 hover:text-[#dd7109] transition-colors">
+                <a href="mailto:contact@secureacomptetravaux.com" className="flex items-center space-x-3 text-[#1a1a1a] hover:text-[#dd7109] transition-colors">
                   <Mail className="h-5 w-5" />
-                  <span className="text-sm">contact@secure-acompte.fr</span>
+                  <span className="text-sm">contact@secureacomptetravaux.com</span>
                 </a>
-                <a href="https://maps.google.com" className="flex items-center space-x-3 text-white/80 hover:text-[#dd7109] transition-colors">
+                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 text-[#1a1a1a] hover:text-[#dd7109] transition-colors">
                   <MapPin className="h-5 w-5" />
                   <span className="text-sm">123 Avenue des Champs-Élysées, Paris</span>
                 </a>
               </div>
+
+              {/* Socials */}
               <div className="flex items-center space-x-4 mt-6">
-                <a href="#" className="text-white/80 hover:text-[#dd7109] transition-colors" aria-label="Facebook">
+                <a href="#" className="text-[#1a1a1a] hover:text-[#dd7109] transition-colors" aria-label="Facebook">
                   <Facebook className="h-5 w-5" />
                 </a>
-                <a href="#" className="text-white/80 hover:text-[#dd7109] transition-colors" aria-label="Instagram">
+                <a href="#" className="text-[#1a1a1a] hover:text-[#dd7109] transition-colors" aria-label="Instagram">
                   <Instagram className="h-5 w-5" />
                 </a>
-                <a href="#" className="text-white/80 hover:text-[#dd7109] transition-colors" aria-label="LinkedIn">
+                <a href="#" className="text-[#1a1a1a] hover:text-[#dd7109] transition-colors" aria-label="LinkedIn">
                   <Linkedin className="h-5 w-5" />
                 </a>
               </div>
@@ -149,7 +171,7 @@ export default function Home() {
       <section className="relative min-h-screen bg-[#1a1a1a] overflow-hidden pt-24 lg:pt-32 pb-32">
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#dd7109]/20 to-transparent" />
-          <div className="absolute top-20 left-[20%] w-32 h-32 border-2 border-white/10 rounded-full animate-spin-slow" />
+
           <div className="absolute bottom-40 right-[10%] w-48 h-48 border border-white/5 rounded-full animate-circle-float" />
           <div className="absolute top-40 right-[30%] w-24 h-24 border border-white/5 rounded-full animate-pulse-slow" />
           <div className="absolute top-1/2 right-[15%] -translate-y-1/2 w-[600px] h-[600px] border border-white/5 rounded-full animate-spin-slow opacity-30" />
@@ -177,15 +199,20 @@ export default function Home() {
                 Gérez efficacement vos acomptes clients, automatisez la répartition des commissions et suivez vos paiements en temps réel.
               </p>
               <div className="space-y-6">
-                <button className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-[#dd7109] text-white font-semibold rounded-full hover:bg-[#dd7109]/90 transition-colors animate-fade-in">
-                  Commencer maintenant
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </button>
+              <Link href="https://app.secureacomptetravaux.com/auth/login" passHref>
+      <button 
+        className="group inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-[#dd7109] text-white font-semibold rounded-full hover:bg-[#dd7109]/90 transition-all duration-300 animate-fade-in"
+        aria-label="Commencer maintenant"
+      >
+        Commencer maintenant
+        <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+      </button>
+    </Link>
                 <div className="relative w-fit mx-auto lg:mx-0 animate-slide-up">
                   <div className="relative bg-[#262626]/40 backdrop-blur-xl rounded-2xl px-4 py-2 border border-white/10">
                     <div className="flex items-center gap-3">
                       <span className="text-white text-sm">Acomptes sécurisés</span>
-                      <span className="text-[#dd7109] font-bold text-sm">+2500</span>
+                      <span className="text-[#dd7109] font-bold text-sm">+250</span>
                     </div>
                   </div>
                 </div>
@@ -193,9 +220,9 @@ export default function Home() {
             </div>
 
             <div className="relative w-full lg:w-[40%]">
-              <div className="relative w-full h-[350px] sm:h-[450px] lg:h-[520px] animate-fade-in">
+              <div className="relative w-full h-[380px] sm:h-[470px] lg:h-[520px] animate-fade-in">
                 <Image
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80"
+                  src="https://sdmntprukwest.oaiusercontent.com/files/00000000-3030-6243-a875-c588b63b508e/raw?se=2025-07-12T20%3A55%3A31Z&sp=r&sv=2024-08-04&sr=b&scid=00dc881f-38cb-523f-9f39-dea9a0ee8080&skoid=82a3371f-2f6c-4f81-8a78-2701b362559b&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-12T08%3A30%3A25Z&ske=2025-07-13T08%3A30%3A25Z&sks=b&skv=2024-08-04&sig=qtPeBOxFOoZzO1%2B2LVRFwMHjuXfn1K78VX0icnSAfew%3D"
                   alt="Professional woman smiling"
                   fill
                   className="object-cover object-center rounded-3xl"
@@ -209,7 +236,7 @@ export default function Home() {
                     </div>
                     <div className="text-center border-l border-gray-200">
                       <p className="text-gray-600 text-sm mb-1">Transactions</p>
-                      <p className="text-[#dd7109] text-2xl font-bold">€5M+</p>
+                      <p className="text-[#dd7109] text-2xl font-bold">€1M+</p>
                     </div>
                   </div>
                 </div>
@@ -226,8 +253,8 @@ export default function Home() {
             <div className="w-full lg:w-1/2 relative">
               <div className="absolute -left-4 bottom-20 bg-[#dd7109] text-white p-6 rounded-2xl shadow-xl animate-float z-20">
                 <div className="text-center">
-                  <div className="text-4xl font-bold">€777.6M</div>
-                  <p className="mt-2 text-sm opacity-90">Acomptes sécurisés pour plus de 4000 entreprises</p>
+                  <div className="text-4xl font-bold">€1M</div>
+                  <p className="mt-2 text-sm opacity-90">Acomptes sécurisés pour plus de 40 entreprises</p>
                 </div>
               </div>
               <div className="relative">
@@ -261,7 +288,7 @@ export default function Home() {
                 Votre partenaire de confiance pour la gestion des acomptes
               </h2>
               <p className="text-gray-600 leading-relaxed">
-                Au cœur de notre mission se trouve l'engagement de sécuriser et simplifier la gestion des acomptes pour les professionnels. Notre expertise et notre passion nous permettent d'offrir une solution innovante qui répond aux besoins spécifiques de chaque entreprise.
+                Au cœur de notre mission se trouve l&apos;engagement de sécuriser et simplifier la gestion des acomptes pour les professionnels. Notre expertise et notre passion nous permettent d&apos;offrir une solution innovante qui répond aux besoins spécifiques de chaque entreprise.
               </p>
               <div className="space-y-4 pt-4">
                 <div className="flex items-start gap-4">
@@ -293,10 +320,10 @@ export default function Home() {
                 </div>
               </div>
               <div className="pt-6">
-                <button className="inline-flex items-center gap-2 text-[#dd7109] hover:text-[#dd7109]/90 font-medium">
+                <a href="mailto:contact@secureacomptetravaux.com" className="inline-flex items-center gap-2 text-[#dd7109] hover:text-[#dd7109]/90 font-medium">
                   <Mail className="w-5 h-5" />
                   Discuter avec un expert
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -407,12 +434,12 @@ export default function Home() {
               {
                 icon: CheckCircle,
                 title: "Gestion des Contrats",
-                description: "Création et suivi automatisé des contrats d'acompte avec signatures électroniques sécurisées."
+                description: "Création et suivi automatisé des contrats d&apos;acompte avec signatures électroniques sécurisées."
               },
               {
                 icon: Shield,
                 title: "Sécurisation des Paiements",
-                description: "Protection des fonds et système de déblocage progressif selon l'avancement des travaux."
+                description: "Protection des fonds et système de déblocage progressif selon l&apos;avancement des travaux."
               },
               {
                 icon: Building2,
@@ -459,14 +486,14 @@ export default function Home() {
                 POURQUOI NOUS CHOISIR
               </div>
               <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                L'expertise au service de résultats exceptionnels
+                L&apos;expertise au service de résultats exceptionnels
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed">
-                Notre expertise guide l'innovation tandis que notre passion alimente la performance. Nous apportons une connaissance approfondie et un dévouement inégalé à chaque projet, délivrant des résultats qui dépassent les attentes.
+                Notre expertise guide l&apos;innovation tandis que notre passion alimente la performance. Nous apportons une connaissance approfondie et un dévouement inégalé à chaque projet, délivrant des résultats qui dépassent les attentes.
               </p>
               <ul className="space-y-4">
                 {[
-                  "Plus de 1000 clients satisfaits",
+                  "Plus de 40 clients satisfaits",
                   "98% de taux de satisfaction",
                   "Support client 24/7"
                 ].map((item, index) => (
@@ -479,10 +506,10 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <button className="inline-flex items-center px-6 py-3 bg-[#dd7109] text-white font-semibold rounded-full hover:bg-[#dd7109]/90 transition-colors">
+              <a href="mailto:contact@secureacomptetravaux.com" className="inline-flex items-center px-6 py-3 bg-[#dd7109] text-white font-semibold rounded-full hover:bg-[#dd7109]/90 transition-colors">
                 Nous contacter
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </button>
+              </a>
             </div>
 
             <div className="relative">
@@ -497,12 +524,12 @@ export default function Home() {
                   {
                     icon: Shield,
                     title: "Transparence et communication",
-                    description: "La transparence assure que l'information est partagée ouvertement, créant un climat de confiance et d'inclusion."
+                    description: "La transparence assure que l&apos;information est partagée ouvertement, créant un climat de confiance et d&apos;inclusion."
                   },
                   {
                     icon: CheckCircle,
                     title: "Résultats garantis",
-                    description: "Notre engagement envers l'excellence assure des résultats concrets et mesurables pour votre entreprise."
+                    description: "Notre engagement envers l&apos;excellence assure des résultats concrets et mesurables pour votre entreprise."
                   }
                 ].map((item, index) => (
                   <div key={index} className="relative pl-20 group">
@@ -572,12 +599,12 @@ export default function Home() {
                 {
                   icon: CheckCircle,
                   question: "Quels types de contrats gérez-vous ?",
-                  answer: "Nous gérons tous types de contrats liés aux acomptes : contrats de construction, de rénovation, de prestations de services, etc. Notre système s'adapte à vos besoins spécifiques."
+                  answer: "Nous gérons tous types de contrats liés aux acomptes : contrats de construction, de rénovation, de prestations de services, etc. Notre système s&apos;adapte à vos besoins spécifiques."
                 }
               ].map((faq, index) => (
                 <div key={index} className="group">
                   <div className="border border-gray-200 rounded-2xl hover:border-[#dd7109]/30 transition-colors">
-                    <button className="flex items-center justify-between w-full p-6 text-left">
+                    <button className="flex items-center justify-between w-full p-6 text-left" aria-expanded="false" aria-controls={`faq-${index}`}>
                       <div className="flex items-center gap-4">
                         <div className="w-10 h-10 rounded-full bg-[#dd7109]/10 flex items-center justify-center flex-shrink-0">
                           <faq.icon className="w-5 h-5 text-[#dd7109]" />
@@ -586,7 +613,7 @@ export default function Home() {
                       </div>
                       <ArrowRight className="w-5 h-5 text-[#dd7109] group-hover:rotate-90 transition-transform duration-200" />
                     </button>
-                    <div className="px-6 pb-6">
+                    <div id={`faq-${index}`} className="px-6 pb-6">
                       <p className="text-gray-600">{faq.answer}</p>
                     </div>
                   </div>
@@ -599,17 +626,17 @@ export default function Home() {
                 {
                   icon: Wallet,
                   question: "Quels sont les frais de service ?",
-                  answer: "Nos frais sont transparents et basés sur un pourcentage du montant des acomptes gérés. Contactez-nous pour obtenir une tarification personnalisée adaptée à votre volume d'activité."
+                  answer: "Nos frais sont transparents et basés sur un pourcentage du montant des acomptes gérés. Contactez-nous pour obtenir une tarification personnalisée adaptée à votre volume d&apos;activité."
                 },
                 {
                   icon: Mail,
                   question: "Quel support proposez-vous ?",
-                  answer: "Notre équipe de support est disponible 24/7 pour répondre à vos questions. Nous proposons une assistance par chat, email et téléphone, ainsi qu'une documentation complète en ligne."
+                  answer: "Notre équipe de support est disponible 24/7 pour répondre à vos questions. Nous proposons une assistance par chat, email et téléphone, ainsi qu&apos;une documentation complète en ligne."
                 }
               ].map((faq, index) => (
                 <div key={index} className="group">
                   <div className="border border-gray-200 rounded-2xl hover:border-[#dd7109]/30 transition-colors">
-                    <button className="flex items-center justify-between w-full p-6 text-left">
+                    <button className="flex items-center justify-between w-full p-6 text-left" aria-expanded="false" aria-controls={`faq-${index+2}`}>
                       <div className="flex items-center gap-4">
                         <div className="w-10 h-10 rounded-full bg-[#dd7109]/10 flex items-center justify-center flex-shrink-0">
                           <faq.icon className="w-5 h-5 text-[#dd7109]" />
@@ -618,19 +645,12 @@ export default function Home() {
                       </div>
                       <ArrowRight className="w-5 h-5 text-[#dd7109] group-hover:rotate-90 transition-transform duration-200" />
                     </button>
-                    <div className="px-6 pb-6">
+                    <div id={`faq-${index+2}`} className="px-6 pb-6">
                       <p className="text-gray-600">{faq.answer}</p>
                     </div>
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-
-          <div className="mt-12 text-center">
-            <div className="inline-flex items-center gap-3 text-[#dd7109] hover:text-[#dd7109]/90 font-medium cursor-pointer group">
-              <span>Accéder au centre d'aide</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
         </div>
@@ -642,8 +662,16 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             <div className="space-y-6">
               <div className="flex items-center gap-2">
-                <Wallet className="w-8 h-8 text-[#dd7109]" />
-                <span className="text-2xl font-bold">SecureAcompteTravaux</span>
+                <Link href="/" className="flex-shrink-0" onClick={() => setShowMobileMenu(false)} aria-label="Accueil">
+                <Image
+                  src="/img/logo blanc sf.svg"
+                  alt="Logo Secure Acompte Travaux"
+                  width={500}
+                  height={120}
+                  className="h-12 sm:h-14 md:h-16 w-auto"
+                  priority
+                />
+              </Link>
               </div>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
@@ -652,7 +680,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-[#dd7109]" />
-                  <span>contact@secureacomptetravaux.com</span>
+                  <span>contact@secure<br></br>acomptetravaux.com</span>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -661,6 +689,7 @@ export default function Home() {
                     key={index}
                     href="#"
                     className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-[#dd7109]/20 transition-colors"
+                    aria-label={index === 0 ? "Facebook" : index === 1 ? "Instagram" : "LinkedIn"}
                   >
                     <Icon className="w-5 h-5" />
                   </a>
@@ -672,10 +701,9 @@ export default function Home() {
               <h3 className="text-xl font-semibold mb-6">Liens rapides</h3>
               <ul className="space-y-4">
                 {[
+                  "Accueil",
                   "À propos",
-                  "Témoignages",
-                  "Notre équipe",
-                  "Articles",
+                  "Connexion",
                   "Politique de confidentialité"
                 ].map((item, index) => (
                   <li key={index}>
@@ -715,8 +743,9 @@ export default function Home() {
                   type="email"
                   placeholder="Votre email"
                   className="w-full bg-white/5 border border-white/10 rounded-full py-3 px-5 focus:outline-none focus:border-[#dd7109] transition-colors"
+                  aria-label="Votre email"
                 />
-                <button className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 bg-[#dd7109] rounded-full flex items-center justify-center hover:bg-[#dd7109]/90 transition-colors">
+                <button className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 bg-[#dd7109] rounded-full flex items-center justify-center hover:bg-[#dd7109]/90 transition-colors" aria-label="Envoyer">
                   <Send className="w-4 h-4" />
                 </button>
               </div>
