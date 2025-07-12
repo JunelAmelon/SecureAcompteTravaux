@@ -293,7 +293,7 @@ export default function Home() {
                 Votre partenaire de confiance pour la gestion des acomptes
               </h2>
               <p className="text-gray-600 leading-relaxed">
-                Au cœur de notre mission se trouve l&apos;engagement de sécuriser et simplifier la gestion des acomptes pour les professionnels. <br></br>Notre expertise et notre passion nous permettent d&apos;offrir une solution innovante qui répond aux besoins spécifiques de chaque entreprise.
+                Au cœur de notre mission se trouve l'engagement de sécuriser et simplifier la gestion des acomptes pour les professionnels. <br></br>Notre expertise et notre passion nous permettent d'offrir une solution innovante qui répond aux besoins spécifiques de chaque entreprise.
               </p>
               <div className="space-y-4 pt-4">
                 <div className="flex items-start gap-4">
@@ -439,12 +439,12 @@ export default function Home() {
               {
                 icon: CheckCircle,
                 title: "Gestion des Contrats",
-                description: "Création et suivi automatisé des contrats d&apos;acompte avec signatures électroniques sécurisées."
+                description: "Création et suivi automatisé des contrats d'acompte avec signatures électroniques sécurisées."
               },
               {
                 icon: Shield,
                 title: "Sécurisation des Paiements",
-                description: "Protection des fonds et système de déblocage progressif selon l&apos;avancement des travaux."
+                description: "Protection des fonds et système de déblocage progressif selon l'avancement des travaux."
               },
               {
                 icon: Building2,
@@ -491,10 +491,10 @@ export default function Home() {
                 POURQUOI NOUS CHOISIR
               </div>
               <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                L&apos;expertise au service de résultats exceptionnels
+                L'expertise au service de résultats exceptionnels
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed">
-                Notre expertise guide l&apos;innovation tandis que notre passion alimente la performance. <br></br>Nous apportons une connaissance approfondie et un dévouement inégalé à chaque projet, délivrant des résultats qui dépassent les attentes.
+                Notre expertise guide l'innovation tandis que notre passion alimente la performance. <br></br>Nous apportons une connaissance approfondie et un dévouement inégalé à chaque projet, délivrant des résultats qui dépassent les attentes.
               </p>
               <ul className="space-y-4">
                 {[
@@ -529,12 +529,12 @@ export default function Home() {
                   {
                     icon: Shield,
                     title: "Transparence et communication",
-                    description: "La transparence assure que l&apos;information est partagée ouvertement, créant un climat de confiance et d&apos;inclusion."
+                    description: "La transparence assure que l'information est partagée ouvertement, créant un climat de confiance et d'inclusion."
                   },
                   {
                     icon: CheckCircle,
                     title: "Résultats garantis",
-                    description: "Notre engagement envers l&apos;excellence assure des résultats concrets et mesurables pour votre entreprise."
+                    description: "Notre engagement envers l'excellence assure des résultats concrets et mesurables pour votre entreprise."
                   }
                 ].map((item, index) => (
                   <div key={index} className="relative pl-20 group">
@@ -604,7 +604,7 @@ export default function Home() {
                 {
                   icon: CheckCircle,
                   question: "Quels types de contrats gérez-vous ?",
-                  answer: "Nous gérons tous types de contrats liés aux acomptes : contrats de construction, de rénovation, de prestations de services, etc. Notre système s&apos;adapte à vos besoins spécifiques."
+                  answer: "Nous gérons tous types de contrats liés aux acomptes : contrats de construction, de rénovation, de prestations de services, etc. Notre système s'adapte à vos besoins spécifiques."
                 }
               ].map((faq, index) => (
                 <div key={index} className="group">
@@ -631,12 +631,12 @@ export default function Home() {
                 {
                   icon: Wallet,
                   question: "Quels sont les frais de service ?",
-                  answer: "Nos frais sont transparents et basés sur un pourcentage du montant des acomptes gérés. Contactez-nous pour obtenir une tarification personnalisée adaptée à votre volume d&apos;activité."
+                  answer: "Nos frais sont transparents et basés sur un pourcentage du montant des acomptes gérés. Contactez-nous pour obtenir une tarification personnalisée adaptée à votre volume d'activité."
                 },
                 {
                   icon: Mail,
                   question: "Quel support proposez-vous ?",
-                  answer: "Notre équipe de support est disponible 24/7 pour répondre à vos questions. Nous proposons une assistance par chat, email et téléphone, ainsi qu&apos;une documentation complète en ligne."
+                  answer: "Notre équipe de support est disponible 24/7 pour répondre à vos questions. Nous proposons une assistance par chat, email et téléphone, ainsi qu'une documentation complète en ligne."
                 }
               ].map((faq, index) => (
                 <div key={index} className="group">

@@ -212,8 +212,8 @@ export default function LegalPage() {
                 Propriété intellectuelle
               </h2>
               <div className="space-y-2 text-gray-700">
-                <p>L&apos;ensemble des éléments constituant le site (textes, images, vidéos, logos, etc.) sont la propriété exclusive d&apos;AXIMOTRAVO ou font l&apos;objet d&apos;une autorisation d&apos;utilisation.</p>
-                <p>Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable d&apos;AXIMOTRAVO.</p>
+                <p>L'ensemble des éléments constituant le site (textes, images, vidéos, logos, etc.) sont la propriété exclusive d'AXIMOTRAVO ou font l'objet d'une autorisation d'utilisation.</p>
+                <p>Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable d'AXIMOTRAVO.</p>
               </div>
             </div>
 
@@ -223,7 +223,7 @@ export default function LegalPage() {
                 Responsabilité
               </h2>
               <div className="space-y-2 text-gray-700">
-                <p>AXIMOTRAVO ne pourra être tenue responsable des dommages directs et indirects causés au matériel de l&apos;utilisateur, lors de l&apos;accès au site.</p>
+                <p>AXIMOTRAVO ne pourra être tenue responsable des dommages directs et indirects causés au matériel de l'utilisateur, lors de l'accès au site.</p>
                 <p>Les informations contenues sur ce site sont aussi précises que possible et le site est périodiquement remis à jour, mais peut toutefois contenir des inexactitudes ou des omissions.</p>
               </div>
             </div>
@@ -241,7 +241,7 @@ export default function LegalPage() {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-[#dd7109]">•</span>
-                  <span>Droit d&apos;accès, de rectification et d&apos;opposition : contact@aximotravo.com</span>
+                  <span>Droit d'accès, de rectification et d'opposition : contact@aximotravo.com</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-[#dd7109]">•</span>
@@ -351,6 +351,7 @@ export default function LegalPage() {
             <div>
               <h3 className="text-xl font-semibold mb-6">Liens rapides</h3>
               <ul className="space-y-4">
+                
                 {[
                   { label: "Accueil", href: "/" },
                   { label: "Mentions légales", href: "/legal" },

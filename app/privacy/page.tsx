@@ -170,7 +170,7 @@ export default function PrivacyPage() {
             {/* Introduction */}
             <div className="space-y-4">
               <p className="text-gray-700">
-                AXIMOTRAVO (&quot;nous&quot;, &quot;notre&quot;, &quot;nos&quot;) s&apos;engage à protéger et respecter votre vie privée. Cette politique explique comment nous collectons, utilisons et protégeons vos données personnelles.
+                AXIMOTRAVO (&quot;nous&quot;, &quot;notre&quot;, &quot;nos&quot;) s'engage à protéger et respecter votre vie privée. Cette politique explique comment nous collectons, utilisons et protégeons vos données personnelles.
               </p>
             </div>
 
@@ -188,7 +188,7 @@ export default function PrivacyPage() {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-[#dd7109]">•</span>
-                  <span><strong>Professionnel :</strong> SIRET, raison sociale, secteur d&apos;activité</span>
+                  <span><strong>Professionnel :</strong> SIRET, raison sociale, secteur d'activité</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-[#dd7109]">•</span>
@@ -217,7 +217,7 @@ export default function PrivacyPage() {
                   <h3 className="font-semibold text-lg mb-2">Finalités secondaires</h3>
                   <ul className="space-y-2 text-gray-700">
                     <li>• Amélioration de nos services</li>
-                    <li>• Envoi d&apos;offres commerciales (avec consentement)</li>
+                    <li>• Envoi d'offres commerciales (avec consentement)</li>
                     <li>• Statistiques anonymes</li>
                   </ul>
                 </div>
@@ -238,9 +238,9 @@ export default function PrivacyPage() {
                     Droits fondamentaux
                   </h3>
                   <ul className="space-y-2 text-gray-700">
-                    <li>• Droit d&apos;accès (article 15 RGPD)</li>
+                    <li>• Droit d'accès (article 15 RGPD)</li>
                     <li>• Droit de rectification (article 16)</li>
-                    <li>• Droit à l&apos;effacement (article 17)</li>
+                    <li>• Droit à l'effacement (article 17)</li>
                   </ul>
                 </div>
                 <div className="p-4 border border-gray-200 rounded-lg">
@@ -249,7 +249,7 @@ export default function PrivacyPage() {
                     Droits spécifiques
                   </h3>
                   <ul className="space-y-2 text-gray-700">
-                    <li>• Droit d&apos;opposition (article 21)</li>
+                    <li>• Droit d'opposition (article 21)</li>
                     <li>• Droit à la portabilité (article 20)</li>
                     <li>• Droit de retirer votre consentement</li>
                   </ul>
@@ -265,7 +265,7 @@ export default function PrivacyPage() {
                     dpo@aximotravo.com
                   </a>
                 </div>
-                <p className="mt-2 text-sm text-gray-600">Nous nous engageons à répondre dans un délai maximum d&apos;un mois.</p>
+                <p className="mt-2 text-sm text-gray-600">Nous nous engageons à répondre dans un délai maximum d'un mois.</p>
               </div>
             </div>
 
