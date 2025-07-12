@@ -173,12 +173,12 @@ export default function LegalPage() {
                 <div>
                   <p><strong>Dénomination sociale :</strong> AXIMOTRAVO</p>
                   <p><strong>Forme juridique :</strong> Société par Actions Simplifiée (SAS)</p>
-                  <p><strong>Capital social :</strong> 10 000 €</p>
-                  <p><strong>Siège social :</strong> 123 Avenue des Champs-Élysées, 75008 Paris</p>
+                  <p><strong>Capital social :</strong> 5000 €</p>
+                  <p><strong>Siège social :</strong> 1 PLACE DU VILLAGE, 65240 ASPIN-AURE France</p>
                 </div>
                 <div>
-                  <p><strong>RCS :</strong> Paris B 123 456 789</p>
-                  <p><strong>TVA intracommunautaire :</strong> FR 12 345678901</p>
+                  <p><strong>RCS :</strong> Tarbes B 815247812</p>
+                  <p><strong>TVA intracommunautaire :</strong> FR95815247812 </p>
                   <p><strong>Email :</strong> contact@aximotravo.com</p>
                   <p><strong>Téléphone :</strong> +33 1 23 45 67 89</p>
                 </div>
