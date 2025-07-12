@@ -219,29 +219,33 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative w-full lg:w-[40%]">
-              <div className="relative w-full h-[380px] sm:h-[470px] lg:h-[520px] animate-fade-in">
-                <Image
-                  src="https://sdmntprukwest.oaiusercontent.com/files/00000000-3030-6243-a875-c588b63b508e/raw?se=2025-07-12T20%3A55%3A31Z&sp=r&sv=2024-08-04&sr=b&scid=00dc881f-38cb-523f-9f39-dea9a0ee8080&skoid=82a3371f-2f6c-4f81-8a78-2701b362559b&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-12T08%3A30%3A25Z&ske=2025-07-13T08%3A30%3A25Z&sks=b&skv=2024-08-04&sig=qtPeBOxFOoZzO1%2B2LVRFwMHjuXfn1K78VX0icnSAfew%3D"
-                  alt="Professional woman smiling"
-                  fill
-                  className="object-cover object-center rounded-3xl"
-                  priority
-                />
-                <div className="absolute -bottom-16 left-8 sm:bottom-6 sm:left-1/2 sm:-translate-x-1/2 w-[280px] bg-white rounded-2xl p-4 shadow-xl animate-float z-10">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center">
-                      <p className="text-gray-600 text-sm mb-1">Satisfaction client</p>
-                      <p className="text-[#dd7109] text-2xl font-bold">98%</p>
-                    </div>
-                    <div className="text-center border-l border-gray-200">
-                      <p className="text-gray-600 text-sm mb-1">Transactions</p>
-                      <p className="text-[#dd7109] text-2xl font-bold">€1M+</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div className="relative w-full lg:w-[40%] flex justify-center lg:justify-end">
+  <div className="relative w-[250px] sm:w-[300px] md:w-[350px] lg:w-[400px] aspect-[3/4] rounded-3xl overflow-hidden shadow-xl border border-white/10 animate-fade-in">
+    <Image
+      src="https://sdmntprukwest.oaiusercontent.com/files/00000000-3030-6243-a875-c588b63b508e/raw?se=2025-07-12T20%3A55%3A31Z&sp=r&sv=2024-08-04&sr=b&scid=00dc881f-38cb-523f-9f39-dea9a0ee8080&skoid=82a3371f-2f6c-4f81-8a78-2701b362559b&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-12T08%3A30%3A25Z&ske=2025-07-13T08%3A30%3A25Z&sks=b&skv=2024-08-04&sig=qtPeBOxFOoZzO1%2B2LVRFwMHjuXfn1K78VX0icnSAfew%3D"
+      alt="Professionnelle souriante"
+      fill
+      className="object-cover object-top"
+      priority
+    />
+  </div>
+
+  {/* Carte stats (optionnelle ou repositionnable) */}
+  <div className="absolute bottom-0 left-0 translate-y-1/2 bg-white rounded-2xl p-4 shadow-lg w-64 animate-float hidden sm:block">
+    <div className="grid grid-cols-2 gap-4">
+      <div className="text-center">
+        <p className="text-gray-600 text-sm mb-1">Satisfaction client</p>
+        <p className="text-[#dd7109] text-2xl font-bold">98%</p>
+      </div>
+      <div className="text-center border-l border-gray-200">
+        <p className="text-gray-600 text-sm mb-1">Transactions</p>
+        <p className="text-[#dd7109] text-2xl font-bold">€1M+</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
           </div>
         </div>
       </section>
@@ -716,18 +720,18 @@ export default function Home() {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold mb-6">Nos services</h3>
+              <h3 className="text-xl font-semibold mb-6">Liens rapides</h3>
               <ul className="space-y-4">
                 {[
-                  "Gestion des acomptes",
-                  "Sécurisation des paiements",
-                  "Reporting financier",
-                  "Support client"
+                  { label: "Accueil", href: "/" },
+                  { label: "Mentions légales", href: "/legal" },
+                  { label: "Politique de confidentialité", href: "/privacy" },
+                  { label: "CGU", href: "/cgu" }
                 ].map((item, index) => (
                   <li key={index}>
-                    <a href="#" className="hover:text-[#dd7109] transition-colors">
-                      {item}
-                    </a>
+                    <Link href={item.href} className="hover:text-[#dd7109] transition-colors">
+                      {item.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
