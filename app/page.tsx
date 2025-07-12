@@ -293,7 +293,7 @@ export default function Home() {
                 Votre partenaire de confiance pour la gestion des acomptes
               </h2>
               <p className="text-gray-600 leading-relaxed">
-                Au cœur de notre mission se trouve l&apos;engagement de sécuriser et simplifier la gestion des acomptes pour les professionnels. Notre expertise et notre passion nous permettent d&apos;offrir une solution innovante qui répond aux besoins spécifiques de chaque entreprise.
+                Au cœur de notre mission se trouve l&apos;engagement de sécuriser et simplifier la gestion des acomptes pour les professionnels. <br></br>Notre expertise et notre passion nous permettent d&apos;offrir une solution innovante qui répond aux besoins spécifiques de chaque entreprise.
               </p>
               <div className="space-y-4 pt-4">
                 <div className="flex items-start gap-4">
@@ -494,7 +494,7 @@ export default function Home() {
                 L&apos;expertise au service de résultats exceptionnels
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed">
-                Notre expertise guide l&apos;innovation tandis que notre passion alimente la performance. Nous apportons une connaissance approfondie et un dévouement inégalé à chaque projet, délivrant des résultats qui dépassent les attentes.
+                Notre expertise guide l&apos;innovation tandis que notre passion alimente la performance. <br></br>Nous apportons une connaissance approfondie et un dévouement inégalé à chaque projet, délivrant des résultats qui dépassent les attentes.
               </p>
               <ul className="space-y-4">
                 {[
