@@ -220,7 +220,7 @@ export default function Home() {
             </div>
 
             <div className="relative w-full lg:w-[40%] flex justify-center lg:justify-end">
-  <div className="relative w-[250px] sm:w-[300px] md:w-[350px] lg:w-[400px] aspect-[3/4] rounded-3xl overflow-hidden shadow-xl border border-white/10 animate-fade-in">
+  <div className="relative w-full max-w-md sm:max-w-sm md:max-w-md lg:w-[400px] aspect-[3/4] rounded-3xl overflow-hidden shadow-xl border border-white/10 animate-fade-in">
     <Image
       src="https://sdmntprukwest.oaiusercontent.com/files/00000000-3030-6243-a875-c588b63b508e/raw?se=2025-07-12T20%3A55%3A31Z&sp=r&sv=2024-08-04&sr=b&scid=00dc881f-38cb-523f-9f39-dea9a0ee8080&skoid=82a3371f-2f6c-4f81-8a78-2701b362559b&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-12T08%3A30%3A25Z&ske=2025-07-13T08%3A30%3A25Z&sks=b&skv=2024-08-04&sig=qtPeBOxFOoZzO1%2B2LVRFwMHjuXfn1K78VX0icnSAfew%3D"
       alt="Professionnelle souriante"
@@ -230,7 +230,7 @@ export default function Home() {
     />
   </div>
 
-  {/* Carte stats (optionnelle ou repositionnable) */}
+  {/* Carte stats */}
   <div className="absolute bottom-0 left-0 translate-y-1/2 bg-white rounded-2xl p-4 shadow-lg w-64 animate-float hidden sm:block">
     <div className="grid grid-cols-2 gap-4">
       <div className="text-center">
@@ -244,6 +244,7 @@ export default function Home() {
     </div>
   </div>
 </div>
+
 
 
           </div>
