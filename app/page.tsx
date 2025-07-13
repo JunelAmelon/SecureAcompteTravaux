@@ -42,7 +42,6 @@ export default function Home() {
 // En haut de votre fichier
 <style jsx global>{`
   html, body {
-    max-width: 100%;
     overflow-x: hidden;
     margin: 0;
     padding: 0;
