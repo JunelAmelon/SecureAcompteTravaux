@@ -229,6 +229,7 @@ export default function Home() {
       priority
     />
   </div>
+  
 
   {/* Carte stats */}
   <div className="absolute bottom-0 left-0 translate-y-1/2 bg-white rounded-2xl p-4 shadow-lg w-64 animate-float hidden sm:block">
@@ -379,25 +380,29 @@ export default function Home() {
                 delay: 0.6
               }
             ].map((step, index) => (
-              <div key={index} className="process-step text-center relative group">
-                <div className="w-20 h-20 mx-auto bg-white rounded-full shadow-lg flex items-center justify-center mb-6 relative transition-transform group-hover:scale-110 duration-300">
-                  <div 
-                    className="absolute inset-0 bg-[#dd7109]/5 rounded-full animate-pulse"
-                    style={{ animationDelay: `${step.delay}s` }}
-                  />
-                  <step.icon 
-                    className="w-8 h-8 text-[#dd7109] animate-process-icon"
-                    style={{ animationDelay: `${step.delay}s` }}
-                  />
-                </div>
-                <div className="process-dot process-dot-start" />
-                {index < 3 && <div className="process-dot process-dot-end" />}
-                <div className="text-[#dd7109] text-6xl font-bold opacity-20 mb-4 group-hover:opacity-30 transition-opacity">
-                  {step.number}
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                <p className="text-gray-600">{step.description}</p>
-              </div>
+<div key={index} className="process-step text-center relative group">
+  <div className="w-20 h-20 mx-auto bg-white rounded-full shadow-lg flex items-center justify-center mb-6 relative transition-transform group-hover:scale-110 duration-300">
+    <div 
+      className="absolute inset-0 bg-[#dd7109]/5 rounded-full animate-pulse"
+      style={{ animationDelay: `${step.delay}s` }}
+    />
+    <step.icon 
+      className="w-8 h-8 text-[#dd7109] animate-process-icon"
+      style={{ animationDelay: `${step.delay}s` }}
+    />
+  </div>
+
+  {/* ❌ Supprime les points sur mobile | ✅ Visible uniquement sur md+ */}
+  <div className="hidden md:block process-dot process-dot-start" />
+  {index < 3 && <div className="hidden md:block process-dot process-dot-end" />}
+
+  <div className="text-[#dd7109] text-6xl font-bold opacity-20 mb-4 group-hover:opacity-30 transition-opacity">
+    {step.number}
+  </div>
+  <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+  <p className="text-gray-600">{step.description}</p>
+</div>
+
             ))}
           </div>
         </div>
