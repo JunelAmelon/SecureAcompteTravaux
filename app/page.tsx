@@ -382,9 +382,7 @@ export default function Home() {
             ].map((step, index) => (
 <div
   key={index}
-  className={`relative group text-center ${
-    index < 3 ? 'step-item' : ''
-  }`}
+  className={`text-center group ${index < 3 ? 'step-item' : ''}`}
 >
   <div className="w-20 h-20 mx-auto bg-white rounded-full shadow-lg flex items-center justify-center mb-6 relative transition-transform group-hover:scale-110 duration-300">
     <div
@@ -397,7 +395,7 @@ export default function Home() {
     />
   </div>
 
-  {/* Points visibles uniquement sur md+ */}
+  {/* Points visibles uniquement à partir de md */}
   <div className="hidden md:block process-dot process-dot-start" />
   {index < 3 && <div className="hidden md:block process-dot process-dot-end" />}
 
@@ -407,6 +405,7 @@ export default function Home() {
   <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
   <p className="text-gray-600">{step.description}</p>
 </div>
+
 
 
 
