@@ -336,15 +336,15 @@ export default function PrivacyPage() {
               <h3 className="text-xl font-semibold mb-6">Liens rapides</h3>
               <ul className="space-y-4">
                 {[
-                  "Accueil",
-                  "À propos",
-                  "Connexion",
-                  "Politique de confidentialité"
+                  { label: "Accueil", href: "/" },
+                  { label: "Mentions légales", href: "/legal" },
+                  { label: "Politique de confidentialité", href: "/privacy" },
+                  { label: "CGU", href: "/terms" }
                 ].map((item, index) => (
                   <li key={index}>
-                    <a href="#" className="hover:text-[#dd7109] transition-colors">
-                      {item}
-                    </a>
+                    <Link href={item.href} className="hover:text-[#dd7109] transition-colors">
+                      {item.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
