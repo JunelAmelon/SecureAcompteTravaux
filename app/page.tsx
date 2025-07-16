@@ -206,7 +206,10 @@ export default function Home() {
                 Sécurisez vos acomptes de travaux en toute confiance
               </h1>
               <p className="text-gray-400 text-base lg:text-lg max-w-xl mx-auto lg:mx-0 animate-slide-up">
-                Gérez efficacement vos acomptes clients, automatisez la répartition des commissions et suivez vos paiements en temps réel.
+              Gérez efficacement vos acomptes clients, automatisez la répartition des commissions et suivez vos paiements en temps réel.
+              <br />
+              Une solution innovante destinée aux particuliers et aux professionnels du secteur du BTP, pour une gestion financière simplifiée, sécurisée et transparente. Sérénité garantie, à chaque étape de vos projets.
+
               </p>
               <div className="space-y-6">
               <Link href="https://app.secureacomptetravaux.com/auth/login" passHref>
@@ -731,7 +734,6 @@ export default function Home() {
                   { label: "Accueil", href: "/" },
                   { label: "Mentions légales", href: "/legal" },
                   { label: "Politique de confidentialité", href: "/privacy" },
-                  { label: "CGU", href: "/terms" }
                 ].map((item, index) => (
                   <li key={index}>
                     <Link href={item.href} className="hover:text-[#dd7109] transition-colors">
