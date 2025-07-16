@@ -519,7 +519,10 @@ export default function Home() {
                 L'expertise au service de résultats exceptionnels
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed">
-                Notre expertise guide l'innovation tandis que notre passion alimente la performance. <br></br>Nous apportons une connaissance approfondie et un dévouement inégalé à chaque projet, délivrant des résultats qui dépassent les attentes.
+              Notre expertise est née de plus de 15 ans d’expérience dans le secteur du bâtiment. <br />
+              Conçue par des experts du terrain, notre solution est le fruit d’une véritable compréhension des défis rencontrés au quotidien. 
+              <br />
+              Animés par la passion d’innover constamment, nous nous engageons à transformer chaque projet en une réussite concrète, offrant des résultats qui dépassent vos attentes et font toute la différence sur le terrain.
               </p>
               <ul className="space-y-4">
                 {[
@@ -624,7 +627,7 @@ export default function Home() {
                 {
                   icon: Shield,
                   question: "Comment fonctionne la sécurisation des acomptes ?",
-                  answer: "Notre système de sécurisation des acomptes utilise une technologie de pointe pour protéger vos fonds. Les paiements sont conservés dans un compte séquestre et libérés progressivement selon les étapes validées du projet."
+                  answer: "Notre système innovant de sécurisation des acomptes repose sur une technologie avancée, développée par des experts du secteur. Vos fonds sont protégés sur un compte séquestre sécurisé, libérés étape par étape selon l'avancement réel et validé de vos projets, assurant confiance et sérénité. Simple à utiliser et 100 % transparent, notre outil garantit la tranquillité d'esprit de tous les acteurs impliqués. Rejoignez les nombreux particuliers et professionnels qui nous font déjà confiance."
                 },
                 {
                   icon: CheckCircle,
@@ -656,7 +659,7 @@ export default function Home() {
                 {
                   icon: Wallet,
                   question: "Quels sont les frais de service ?",
-                  answer: "Nos frais sont transparents et basés sur un pourcentage du montant des acomptes gérés. Contactez-nous pour obtenir une tarification personnalisée adaptée à votre volume d'activité."
+                  answer: "Nos frais sont transparents et basés sur un pourcentage clair du montant des acomptes gérés. Pour les particuliers, nous appliquons un tarif minimal afin de garantir une accessibilité optimale à notre solution. Pour les entreprises et les professionnels, nous proposons une tarification flexible et évolutive selon votre volume d'activité ou sous forme d’abonnement. Contactez-nous dès maintenant pour une offre personnalisée parfaitement adaptée à vos besoins"
                 },
                 {
                   icon: Mail,
